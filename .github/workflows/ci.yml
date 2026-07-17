@@ -1,0 +1,19 @@
+name: Calculadora
+on:
+    push:
+jobs:
+    testes:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout
+              uses: actions/checkout@v5
+
+            - name: Configurar o Java
+              uses: actions/setup-java@v3
+              with:
+                distribution: 'temurin'
+                java-version: '21'
+                
+            - name: Executar testes
+              run: mvn test
+                
